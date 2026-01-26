@@ -112,3 +112,30 @@ print(rfm["ChurnRisk"].value_counts())
 # Save for later use in BI / SQL
 rfm.to_csv("../data/rfm_customers.csv")
 print("\nRFM table saved as data/rfm_customers.csv")
+
+# --- RFM ANALYSIS (Customer Segmentation) ---
+
+snapshot_date = df["InvoiceDate"].max() + pd.Timedelta(days=1)
+
+rfm = df.groupby("CustomerID").agg(
+    Recency=("InvoiceDate", lambda x: (snapshot_date - x.max()).days),
+    Frequency=("InvoiceNo", "nunique"),
+    Monetary=("Revenue", "sum")
+)
+
+print("\nRFM Sample:")
+print(rfm.head())
+
+rfm["ChurnRisk"] = np.where(
+    (rfm["Recency"] > 90) & (rfm["Frequency"] == 1),
+    "High Risk",
+    "Low Risk"
+)
+
+print("\nChurn Risk Distribution:")
+print(rfm["ChurnRisk"].value_counts())
+
+rfm.to_csv("../data/rfm_customers.csv", index=True)
+print("\nRFM table saved as data/rfm_customers.csv")
+
+print("\n✅ REACHED END OF SCRIPT")
