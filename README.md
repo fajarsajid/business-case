@@ -1,42 +1,60 @@
-# E-Commerce Revenue & Customer Retention Analysis
+# 📊 Business Case: E-Commerce Revenue & Customer Analytics
 
-## Business Context
-A mid-size e-commerce company is experiencing stagnant revenue growth despite increased marketing spend.
-Management wants to understand:
-- What drives revenue
-- How customers behave over time
-- Which customers are at risk of churn
+This project simulates a real-world data analyst workflow for an online retail business.  
+It covers the full analytics pipeline:
 
-## Tools
-- Python (Pandas, NumPy, Matplotlib)
-- PostgreSQL (next phase)
-- Power BI (next phase)
+- Raw data ingestion  
+- Data cleaning & feature engineering (Python)  
+- Revenue trend analysis  
+- Customer segmentation using RFM  
+- Data warehousing in PostgreSQL  
+- Business-driven SQL analytics  
+- Version-controlled portfolio project  
 
-## Key Insights
-- Revenue shows strong seasonality with a major surge in Q4 (September–November)
-- November is the peak revenue month
-- A small percentage of customers generate a large share of total revenue
-- A significant portion of customers make only one purchase and never return
+The goal is to answer **business questions** such as:
 
-## Analysis Performed
-- Cleaned raw transactional data
-- Engineered revenue metrics
-- Analyzed monthly revenue trends
-- Identified top products and high-value customers
-- Built RFM (Recency, Frequency, Monetary) model
-- Flagged churn-risk customers
+- How is revenue trending over time?
+- Who are the most valuable customers?
+- Which customers are at risk of churn?
+- How can the business increase repeat purchases?
 
-## Business Recommendations
-1. Concentrate marketing and inventory planning in Q3–Q4
-2. Launch loyalty programs for repeat customers
-3. Retarget one-time buyers with personalized campaigns
-4. Proactively engage high-value customers at churn risk
+---
 
-This project simulates real-world business analytics work and demonstrates end-to-end data analysis.
+## 🧱 Tech Stack
 
-## Key Business Insights
+- **Python** – pandas, matplotlib
+- **PostgreSQL** – data warehouse & analytics
+- **SQL** – business queries
+- **Git/GitHub** – version control & portfolio hosting
 
-- Revenue shows strong seasonality, peaking in Q4 (Sep–Nov), indicating holiday-driven demand.
-- ~65.6% of customers make repeat purchases, suggesting a healthy base of loyal buyers.
-- ~20% of customers are classified as high churn risk (single purchase + 90+ days inactivity).
-- Opportunity: convert first-time buyers into repeat customers via post-purchase campaigns and incentives.
+---
+
+## 📂 Project Structure
+
+business-case/
+├── data/
+│   ├── online_retail.csv        # Raw dataset
+│   ├── cleaned_retail.csv       # Cleaned dataset (Python)
+│   └── rfm_customers.csv        # RFM segmentation output
+├── notebooks/
+│   └── business_case_analysis.py
+├── sql/
+│   └── analysis_queries.sql     # Business SQL queries
+└── README.md
+
+---
+
+## 🧼 Data Cleaning (Python)
+
+Using `pandas`, the script:
+
+- Removes null and invalid rows  
+- Converts dates and numeric fields  
+- Creates a `Revenue = Quantity * UnitPrice` column  
+- Saves a clean dataset for analysis  
+
+```python
+df = df.dropna()
+df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
+df["Revenue"] = df["Quantity"] * df["UnitPrice"]
+df.to_csv("data/cleaned_retail.csv", index=False)
