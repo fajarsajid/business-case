@@ -174,10 +174,11 @@ git push origin main
 ## 📊 Analysis Outputs
 
 ### Monthly Revenue Trend
-![Monthly Revenue Trend](images/monthly_revenue_trend.png)
+![Monthly Revenue Trend](images/monthly_revenue.png)
 
 ### Data Cleaning & RFM Output (Python)
-![Python Cleaning Output](images/python_cleaning_output.png)
+![Python Cleaning Output](images/rfm_output.png)
 
 ### Top Customers by Lifetime Revenue (SQL)
-![Top Customers SQL](images/sql_top_customers.png)
+![Top Customers SQL](images/sql_result.png)
+
