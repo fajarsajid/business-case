@@ -33,3 +33,10 @@ Management wants to understand:
 4. Proactively engage high-value customers at churn risk
 
 This project simulates real-world business analytics work and demonstrates end-to-end data analysis.
+
+## Key Business Insights
+
+- Revenue shows strong seasonality, peaking in Q4 (Sep–Nov), indicating holiday-driven demand.
+- ~65.6% of customers make repeat purchases, suggesting a healthy base of loyal buyers.
+- ~20% of customers are classified as high churn risk (single purchase + 90+ days inactivity).
+- Opportunity: convert first-time buyers into repeat customers via post-purchase campaigns and incentives.
