@@ -4,21 +4,16 @@ Project Overview
 This project presents an end-to-end data analytics case study for an online retail business.
 It simulates how a data analyst works with transactional sales data to uncover revenue trends, segment customers, and deliver actionable business insights.
 The analysis supports decision-making around customer retention, revenue growth, and marketing prioritization using Python and SQL.
-The goal is to answer **business questions** such as:
 
-- How is revenue trending over time?
-- Who are the most valuable customers?
-- Which customers are at risk of churn?
-- How can the business increase repeat purchases?
 
----
-Business Questions
+# Business Questions
+
 The project addresses the following key business questions:
 How is revenue trending over time?
 Who are the most valuable customers?
 Which customers are at risk of churn?
 How can the business increase repeat purchases and customer lifetime value?
----
+
 
 ## 🧱 Tech Stack
 
@@ -175,13 +170,7 @@ psql -U postgres -d business_case
 Portfolio Note
 This repository is part of my data analyst portfolio and demonstrates practical business analytics using Python and SQL.
 
-Then run:
 
-```bash
-git add README.md
-git commit -m "Add full business case documentation"
-git push origin main
-```
 ## 📊 Analysis Outputs
 
 ### Monthly Revenue Trend
