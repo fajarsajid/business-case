@@ -1,16 +1,9 @@
 # 📊 Business Case: E-Commerce Revenue & Customer Analytics
 
-This project simulates a real-world data analyst workflow for an online retail business.  
-It covers the full analytics pipeline:
-
-- Raw data ingestion  
-- Data cleaning & feature engineering (Python)  
-- Revenue trend analysis  
-- Customer segmentation using RFM  
-- Data warehousing in PostgreSQL  
-- Business-driven SQL analytics  
-- Version-controlled portfolio project  
-
+Project Overview
+This project presents an end-to-end data analytics case study for an online retail business.
+It simulates how a data analyst works with transactional sales data to uncover revenue trends, segment customers, and deliver actionable business insights.
+The analysis supports decision-making around customer retention, revenue growth, and marketing prioritization using Python and SQL.
 The goal is to answer **business questions** such as:
 
 - How is revenue trending over time?
@@ -18,6 +11,13 @@ The goal is to answer **business questions** such as:
 - Which customers are at risk of churn?
 - How can the business increase repeat purchases?
 
+---
+Business Questions
+The project addresses the following key business questions:
+How is revenue trending over time?
+Who are the most valuable customers?
+Which customers are at risk of churn?
+How can the business increase repeat purchases and customer lifetime value?
 ---
 
 ## 🧱 Tech Stack
@@ -46,12 +46,11 @@ business-case/
 
 ## 🧼 Data Cleaning (Python)
 
-Using `pandas`, the script:
-
-- Removes null and invalid rows  
-- Converts dates and numeric fields  
-- Creates a `Revenue = Quantity * UnitPrice` column  
-- Saves a clean dataset for analysis  
+Using pandas, the dataset is prepared for analysis by:
+ -Removing null and invalid records
+ -Converting date and numeric fields
+ -Creating a Revenue = Quantity × UnitPrice feature
+ -Exporting a clean dataset for downstream analysis
 
 ```python
 df = df.dropna()
@@ -59,15 +58,16 @@ df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
 df["Revenue"] = df["Quantity"] * df["UnitPrice"]
 df.to_csv("data/cleaned_retail.csv", index=False)
 ```
-📈 Monthly Revenue Trend
+📈 Revenue Trend Analysis
 
-The project generates a monthly revenue chart:
-	•	Reveals seasonality
-	•	Shows strong Q4 growth
-	•	Highlights potential forecasting opportunities
+Monthly revenue is aggregated to identify seasonality and growth patterns.
 
-This mirrors real stakeholder reporting in retail analytics.
-
+Key findings:
+ -Clear revenue spikes during Q4
+ -Strong seasonal demand toward year-end
+ -Opportunities for revenue forecasting and inventory planning
+ -This analysis mirrors stakeholder reporting commonly used in retail analytics.
+ 
 👥 RFM Customer Segmentation
 
 Each customer is scored on:
@@ -85,15 +85,16 @@ CustomerID | Recency | Frequency | Monetary
 12347.0    | 2       | 7         | 4310.00
 
 Churn distribution:
-Low Risk   : 3491
-High Risk  : 847
+Low Risk   : 3491 customers
+High Risk  : 847 customers
 
-Business Insight: ~20% of customers are high-risk.
-Opportunity: Convert first-time buyers into repeat customers using retention campaigns.
+Business Insight: 
+~20% of customers are at high churn risk, presenting an opportunity for targeted retention campaigns to convert first-time buyers into repeat customers.
 
 🗄 PostgreSQL Data Warehouse
 
 The cleaned data is loaded into PostgreSQL:
+```
 CREATE TABLE ecommerce (
     invoiceno TEXT,
     stockcode TEXT,
@@ -108,20 +109,23 @@ CREATE TABLE ecommerce (
 Loaded with:
 COPY ecommerce FROM '/path/cleaned_retail.csv'
 WITH (FORMAT csv, HEADER true);
+```
 
 📊 Business SQL Examples
 
 Saved in sql/analysis_queries.sql.
 
 Top customers by lifetime value:
+```
 SELECT customerid,
        ROUND(SUM(revenue), 2) AS lifetime_revenue
 FROM ecommerce
 GROUP BY 1
 ORDER BY lifetime_revenue DESC
 LIMIT 10;
-
+```
 Sample result:
+```
 CustomerID | Lifetime_Revenue
 14646      | 280206.02
 18102      | 259657.30
@@ -131,6 +135,7 @@ These queries replicate what analysts deliver to:
 	•	Marketing teams
 	•	Finance
 	•	Product managers
+```
 
 ⸻
 
@@ -151,19 +156,25 @@ This project demonstrates:
 	•	Clean, documented, reproducible work
 	•	Tools used in real analyst roles
 
-It mirrors what a junior or mid-level data analyst does in a real company.
+It reflects the responsibilities of a junior to mid-level data analyst in an industry setting.
 
 ⸻
 
 🚀 How to Run
+```
 cd notebooks
 python3 business_case_analysis.py
+```
 
 PostgreSQL:
+```
 psql -U postgres -d business_case
 \i sql/analysis_queries.sql
+```
 
-This repository is part of my data analyst portfolio.
+Portfolio Note
+This repository is part of my data analyst portfolio and demonstrates practical business analytics using Python and SQL.
+
 Then run:
 
 ```bash
