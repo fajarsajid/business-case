@@ -175,7 +175,7 @@ psql -U postgres -d business_case
 ```
 
 Portfolio Note
-This repository is part of my data analyst portfolio and demonstrates practical business analytics using Python and SQL.
+This repository is part of my data analyst portfolio, showcasing end-to-end analytics skills used in real-world business scenarios.
 
 
 ## 📊 Analysis Outputs
