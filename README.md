@@ -1,42 +1,47 @@
-# 📊 Business Case: E-Commerce Revenue & Customer Analytics
+# End-to-End Data Analytics Project
 
-Project Overview
-This project presents an end-to-end data analytics case study for an online retail business.
-It simulates how a data analyst works with transactional sales data to uncover revenue trends, segment customers, and deliver actionable business insights.
-The analysis supports decision-making around customer retention, revenue growth, and marketing prioritization using Python and SQL.
+This project demonstrates a complete data analytics workflow using an online retail dataset. It includes data cleaning, transformation, SQL analysis, customer segmentation, and business insights generation.
 
+## Tools & Technologies
+- Python
+- pandas
+- SQL / PostgreSQL
+- Google Sheets
+- Git/GitHub
 
-# Business Questions
+## Key Business Questions
+- How is revenue trending over time?
+- Who are the most valuable customers?
+- Which customers are at risk of churn?
+- How can the business improve customer retention and lifetime value?
 
-The project addresses the following key business questions:
-How is revenue trending over time?
-Who are the most valuable customers?
-Which customers are at risk of churn?
-How can the business increase repeat purchases and customer lifetime value?
+## Key Insights
+- Revenue shows strong seasonality with a peak in Q4.
+- A small group of customers contributes a large share of total revenue.
+- Approximately 20% of customers are classified as high churn risk.
 
+## Key Visualizations
 
-## 🧱 Tech Stack
+### Monthly Revenue Trend
+![Monthly Revenue Trend](images/monthly_revenue.png)
 
-- **Python** – pandas, matplotlib
-- **PostgreSQL** – data warehouse & analytics
-- **SQL** – business queries
-- **Git/GitHub** – version control & portfolio hosting
+### Customer Segmentation (Churn Risk)
+![Customer Segmentation](images/customer_segmentation.png)
 
----
+### Top Customers by Lifetime Revenue
+![Top Customers](images/top_customers.png)
 
-## 📂 Project Structure
+## Project Structure
+- `data/` → raw and cleaned datasets
+- `notebooks/` → Python analysis script
+- `sql/` → SQL queries
+- `images/` → visualization outputs
+- `output/` → final CSV outputs
 
-business-case/
-├── data/
-│   ├── online_retail.csv        # Raw dataset
-│   ├── cleaned_retail.csv       # Cleaned dataset (Python)
-│   └── rfm_customers.csv        # RFM segmentation output
-├── notebooks/
-│   └── business_case_analysis.py
-├── sql/
-│   └── analysis_queries.sql     # Business SQL queries
-└── README.md
-
+## Output Files
+- `output/monthly_revenue.csv`
+- `output/customer_segments.csv`
+- `output/top_customers.csv`
 ---
 
 ## 🧼 Data Cleaning (Python)
