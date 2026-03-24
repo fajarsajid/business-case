@@ -163,6 +163,9 @@ It reflects the responsibilities of a junior to mid-level data analyst in an ind
 ⸻
 
 🚀 How to Run
+Requirements:
+- Python 3.x
+- PostgreSQL installed and running
 ```
 cd notebooks
 python3 business_case_analysis.py
