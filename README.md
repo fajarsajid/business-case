@@ -174,7 +174,8 @@ psql -U postgres -d business_case
 \i sql/analysis_queries.sql
 ```
 
-Portfolio Note
+Portfolio Note:
+
 This repository is part of my data analyst portfolio, showcasing end-to-end analytics skills used in real-world business scenarios.
 
 
