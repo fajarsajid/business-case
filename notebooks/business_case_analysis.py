@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load dataset
-df = pd.read_csv("../data/online_retail.csv", encoding="latin1")
+df = pd.read_csv("data/online_retail.csv", encoding="latin1")
 
 print("Original shape:", df.shape)
 
@@ -32,7 +32,7 @@ print("\nMissing values after cleaning:")
 print(df.isna().sum())
 
 # Save cleaned data for later SQL & Power BI use
-df.to_csv("../data/cleaned_retail.csv", index=False)
+df.to_csv("data/cleaned_retail.csv", index=False)
 
 print("\nCleaned dataset saved as data/cleaned_retail.csv")
 
@@ -57,7 +57,8 @@ plt.title("Monthly Revenue Trend")
 plt.xlabel("Month")
 plt.ylabel("Revenue")
 plt.tight_layout()
-plt.show()
+plt.savefig("images/monthly_revenue.png")
+plt.close()
 
 
 # 2. Top 10 Products by Revenue
@@ -110,7 +111,7 @@ print("\nChurn Risk Distribution:")
 print(rfm["ChurnRisk"].value_counts())
 
 # Save for later use in BI / SQL
-rfm.to_csv("../data/rfm_customers.csv")
+rfm.to_csv("data/rfm_customers.csv")
 print("\nRFM table saved as data/rfm_customers.csv")
 
 # --- RFM ANALYSIS (Customer Segmentation) ---
@@ -135,7 +136,28 @@ rfm["ChurnRisk"] = np.where(
 print("\nChurn Risk Distribution:")
 print(rfm["ChurnRisk"].value_counts())
 
-rfm.to_csv("../data/rfm_customers.csv", index=True)
+rfm.to_csv("data/rfm_customers.csv", index=True)
 print("\nRFM table saved as data/rfm_customers.csv")
 
 print("\n✅ REACHED END OF SCRIPT")
+
+# === EXPORT DASHBOARD DATA ===
+
+import os
+os.makedirs("output", exist_ok=True)
+
+# Monthly revenue
+monthly_revenue = df.groupby(df["InvoiceDate"].dt.to_period("M"))["Revenue"].sum().reset_index()
+monthly_revenue.columns = ["Month", "Revenue"]
+monthly_revenue.to_csv("output/monthly_revenue.csv", index=False)
+
+# Top customers
+top_customers = df.groupby("CustomerID")["Revenue"].sum().reset_index()
+top_customers.columns = ["customerid", "lifetime_revenue"]
+top_customers = top_customers.sort_values(by="lifetime_revenue", ascending=False).head(10)
+top_customers.to_csv("output/top_customers.csv", index=False)
+
+# Customer segments
+segment_counts = rfm["ChurnRisk"].value_counts().reset_index()
+segment_counts.columns = ["segment", "customer_count"]
+segment_counts.to_csv("output/customer_segments.csv", index=False)
