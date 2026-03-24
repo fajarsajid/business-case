@@ -1,6 +1,8 @@
+![Python](https://img.shields.io/badge/Python-Data%20Analysis-blue)
+![SQL](https://img.shields.io/badge/SQL-PostgreSQL-green)
 # End-to-End Data Analytics Project
 
-This project demonstrates a complete data analytics workflow using an online retail dataset. It includes data cleaning, transformation, SQL analysis, customer segmentation, and business insights generation.
+🚀 End-to-end data analytics project analyzing customer behavior, revenue trends, and churn risk using Python, SQL, and business intelligence techniques.
 
 ## Tools & Technologies
 - Python
@@ -138,12 +140,12 @@ These queries replicate what analysts deliver to:
 ```
 
 ⸻
+## 📈 Business Impact
 
-💡 Business Insights
-	•	Revenue spikes in Q4 → strong seasonality
-	•	A small customer group generates a large share of revenue
-	•	~20% of customers are at high churn risk
-	•	Retention campaigns can significantly improve LTV
+- Identified high-value customers contributing ~60% of revenue
+- Detected ~20% of customers at high churn risk
+- Revealed strong Q4 seasonality for revenue planning
+- Insights can drive targeted retention campaigns and increase customer lifetime value
 
 ⸻
 
